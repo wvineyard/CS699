@@ -1,0 +1,6 @@
+{
+    "2022-10-07 18:04:03": "# create variables for length and width of a rectangle and store values in them\n# calculate the area of the rectangle \n# print out the area\nlength = 4\nwidth = 5\narea = length * width\nprint(area)\n",
+    "2022-10-07 18:10:40": "# A variable is a name for a container that can hold a value\n# The `=` sign is used to assign a value to a variable\n\na = 7\nb = 3\nc = a + b\nprint(a, b, c)\n",
+    "2022-10-07 18:10:44": "# A variable is a name for a container that can hold a value\n# The `=` sign is used to assign a value to a variable\n\na = 7\nb = 3\nc = a + b\nprint(a, b, c)\n",
+    "2022-10-07 18:10:59": "# create variables for length and width of a rectangle and store values in them\n# calculate the area of the rectangle \n# print out the area\nlength = 4\nwidth = 5\narea = length * width\nprint(area)\n"
+}
