@@ -7,7 +7,7 @@ from os.path import exists
 class CSPMagic(Magics):
     @cell_magic
     def cmagic(self, line, cell):
-        "my cell magic"
+        "ITS Cell Magic"
         add_to_json(cell)
         return exec(cell)
 
