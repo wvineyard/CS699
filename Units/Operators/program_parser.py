@@ -16,21 +16,26 @@ def parse(id: str, code: str, debug=False):
     locals_param = {"print": print}
     # pylint disable=exec-used
     exec(code, globals_param, locals_param)
-    if debug:
-        print(f"{id}\n,locals: {locals_param}")
+    # if debug:
+    #     print(f"{id}\n,locals: {locals_param}")
     types = {"<class 'int'>": 0, "<class 'float'>": 0, "<class 'str'>": 0}
+    out = ""
     for var in locals_param.items():
         try: 
             if str(type(locals_param[var[0]])) in types:
                 types[str(type(locals_param[var[0]]))] += 1
+            else:
+                if out == "":
+                    out += "You seem to have a variable type that isn't a float, int, or string.\n"
         except KeyError:
             pass
-    out = ""
+   
     for t in types: 
         if types[t] < 1:
             out += "Did you make sure to add a variable of type " + t + "?\n"
         elif types[t] > 1:
             out += f"You have too many of type {t} in your code!\n"
+    
     if out != "":
         print(out)
     else: 
