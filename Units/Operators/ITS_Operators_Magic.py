@@ -9,9 +9,13 @@ class CSPMagic(Magics):
     def ITS(self, line, cell):
         "ITS Cell Magic"
         id = line
-        parse(id, cell, debug=True)
         add_to_json(id, cell)
-        return exec(cell)
+        o = parse(id, cell, debug=True)
+        print(o)
+        try: 
+            exec(cell)
+        except Exception as e:
+            return None
 
     @cell_magic
     def wow(self, line, cell):
