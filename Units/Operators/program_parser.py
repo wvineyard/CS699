@@ -1,7 +1,13 @@
 import json
 import time
+import socket
+import sys
 from os.path import exists
 from math import sqrt
+import random
+
+HOST = "localhost"
+PORT = 5000
 
 def parse(id: str, code: str, debug=False) -> str:
     """ Parses the code from the jupyter notebook and (for the type being)
@@ -16,8 +22,6 @@ def parse(id: str, code: str, debug=False) -> str:
     locals_param = {"print": print, "sqrt": sqrt}
     # pylint disable=exec-used
     
-    # if debug:
-    #     print(f"{id}\n,locals: {locals_param}")
     imports = code.split("\n")
     # Removes import statements, and checks to see if the import statements are authorized. 
     # If they are authorized, it should be imported in this file. 
@@ -86,11 +90,29 @@ def parse(id: str, code: str, debug=False) -> str:
             return "a doesn't seem to be greater than b, did you edit them correctly?"
     elif id == "2a": 
         exec(code, globals_param, locals_param)
-        
-        print(locals_param)
+        func = locals_param["calculate_area"]
+        status = True
+        for i in range(10000): 
+            status = func(i) == i**2 * 3.14
+            if not status:
+                return f"Tried computing for {i}, but got {func(i)} instead of {i**2 * 3.14}"
+        return "All Good!"
+        # print(locals_param)
+    elif id == "2b":
+        exec(code, globals_param, locals_param)
+        func = locals_param["maximum"]
+        seed = 11272022
+        random.seed(seed)
+        status = True
+        for i in range(0, 10000, 500): 
+            val1, val2 = random.randint(0, i), random.randint(0, i+1)
+            status = func(val1, val2) == max(val1, val2)
+            if not status:
+                return f"Tried computing for a={val1} and b={val2}, but got {func(val1, val2)} instead of {max(val1, val2)}"
+        return "All Good!"
                 
 
-def add_to_json(id, input):
+def add_to_json(id, input, name, email) -> None:
     """ Adds the input to the json file
 
     Args:
@@ -99,21 +121,55 @@ def add_to_json(id, input):
     """
     current_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     # check to see if data.json exists
+    feedback = parse(id, input)
+    correct = feedback == "All Good!"
+    key = name.replace(" ", "") + "+" + current_time
     if not exists("./data.json"):
         data = {}
-        data[current_time] = id, input
+        
+        o = {
+            "key": key, 
+            "name": name,
+            "email": email,
+            "id": id,
+            "input": input,
+            "correct": correct, 
+            "feedback": feedback, 
+        }
+        data[key] = o
         json_out = json.dumps(data, indent=4)
         with open("data.json", "w") as outfile:
             outfile.write(json_out)
     else:
         with open("data.json", "r+") as outfile:
+            o = {
+                "key": key,
+                "name": name,
+                "email": email,
+                "id": id,
+                "input": input,
+                "correct": correct, 
+                "feedback": feedback, 
+            }
             file_data = json.load(outfile)
-            file_data[current_time] = id, input
+            file_data[key] = o
             outfile.seek(0)
             json.dump(file_data, outfile, indent=4)
 
-# create a method that takes a function and a list of arguments and returns the output of the function with the arguments
-
+async def upload_solution(code: dict, debug = False) -> bool: 
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try: 
+        sock.connect((HOST, PORT))
+        sock.sendall(bytes(json.dumps(code), "utf-8"))
+        
+        received = sock.recv(1024)
+        received = received.decode("utf-8")
+    finally: 
+        sock.close()
+    if debug:
+        print("Sent:    {}".format(code))
+        print("Received: {}".format(received))
+        
 
 def main():
     id = "1a"
