@@ -7,7 +7,9 @@ from math import sqrt
 import random
 from builtins import zip 
 from solution_checker import check_solution
+# Global Variables
 URL = "http://127.0.0.1:5000/upload"
+
 
 def parse(id: str, code: str, debug=False) -> str:
     """ Parses the code from the jupyter notebook and (for the type being)
@@ -36,6 +38,7 @@ def parse(id: str, code: str, debug=False) -> str:
     
                 
 
+
 def add_to_json(id, input, name, email) -> None:
     """ Adds the input to the json file
 
@@ -47,7 +50,12 @@ def add_to_json(id, input, name, email) -> None:
     # check to see if data.json exists
     feedback = parse(id, input)
     correct = feedback == "All Good!"
+    
     key = name.replace(" ", "") + "+" + current_time
+    # if bufferID == 'z':
+    #     bufferID = 'a'
+    # else:
+    #     bufferID = chr(ord(bufferID) + 1)
     if not exists("./data.json"):
         data = {}
         
@@ -67,7 +75,7 @@ def add_to_json(id, input, name, email) -> None:
             try:
                 requests.post(URL, json=data)    
             except: 
-                pass
+                print("Error: Could not connect to server")
     else:
         with open("data.json", "r+") as outfile:
             data = {}
@@ -89,7 +97,7 @@ def add_to_json(id, input, name, email) -> None:
             try:
                 requests.post(URL, json=data)
             except: 
-                pass
+                print("Error: Could not connect to server")
 
 
 

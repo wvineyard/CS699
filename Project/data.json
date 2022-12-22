@@ -340,5 +340,25 @@
         "input": "def name_age(names: list, ages: list) -> dict:\n    name_age_dict = {}\n    for name, age in zip(names, ages):\n        # your code here\n        name_age_dict[name] = age\n    \n    return name_age_dict\n",
         "correct": true,
         "feedback": "All Good!"
+    },
+    "+2022-12-22 13:50:34": {
+        "key": "+2022-12-22 13:50:34",
+        "name": "",
+        "email": "",
+        "id": "5a",
+        "input": "def capitalize_first(string): \n    # Capitalize the first letter of every word in a string\n    for i in string.split():\n        string = string.replace(i, i.capitalize())\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 13:50:35": {
+        "key": "+2022-12-22 13:50:35",
+        "name": "",
+        "email": "",
+        "id": "5c",
+        "input": "def remove_spaces(string):\n    for s in string:\n        if s == \" \":\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    }
+}k": "All Good!"
     }
 }
