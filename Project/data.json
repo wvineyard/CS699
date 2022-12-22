@@ -178,5 +178,167 @@
         "input": "for i in range(0, 101, 5):\n    print(i)\n",
         "correct": true,
         "feedback": "All Good!"
+    },
+    "+2022-12-22 11:32:28": {
+        "key": "+2022-12-22 11:32:28",
+        "name": "",
+        "email": "",
+        "id": "5a",
+        "input": "def capitalize_first(string): \n    # Capitalize the first letter of every word in a string\n    for i in string.split():\n        string = string.replace(i, i.upper())\n    return string\n",
+        "correct": false,
+        "feedback": "Ran your function on the quick brown fox, but got THE QUICK BROWN FOX instead of The Quick Brown Fox"
+    },
+    "+2022-12-22 11:33:05": {
+        "key": "+2022-12-22 11:33:05",
+        "name": "",
+        "email": "",
+        "id": "5a",
+        "input": "def capitalize_first(string): \n    # Capitalize the first letter of every word in a string\n    for i in string.split():\n        string = string.replace(i, i.capitalize())\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:33:48": {
+        "key": "+2022-12-22 11:33:48",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n",
+        "correct": false,
+        "feedback": "Ran your function on the quick brown fox, but got None instead of th qck brwn fx"
+    },
+    "+2022-12-22 11:45:00": {
+        "key": "+2022-12-22 11:45:00",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n",
+        "correct": false,
+        "feedback": "Ran your function on the quick brown fox, but got None instead of th qck brwn fx"
+    },
+    "+2022-12-22 11:47:12": {
+        "key": "+2022-12-22 11:47:12",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": false,
+        "feedback": "Ran your function on goodbye moon, but got gdby mn instead of gdby mnn"
+    },
+    "+2022-12-22 11:47:38": {
+        "key": "+2022-12-22 11:47:38",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": false,
+        "feedback": "Ran your function on goodbye moon, but got gdby mn instead of gdby mnn"
+    },
+    "+2022-12-22 11:48:00": {
+        "key": "+2022-12-22 11:48:00",
+        "name": "",
+        "email": "",
+        "id": "5a",
+        "input": "def capitalize_first(string): \n    # Capitalize the first letter of every word in a string\n    for i in string.split():\n        string = string.replace(i, i.capitalize())\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:48:02": {
+        "key": "+2022-12-22 11:48:02",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:48:17": {
+        "key": "+2022-12-22 11:48:17",
+        "name": "",
+        "email": "",
+        "id": "5c",
+        "input": "def remove_spaces(string):\n    for s in string:\n        if s == \" \":\n            string = string.replace(s, \"\")\n",
+        "correct": false,
+        "feedback": "Ran your function on the quick brown fox, but got None instead of thequickbrownfox"
+    },
+    "+2022-12-22 11:48:29": {
+        "key": "+2022-12-22 11:48:29",
+        "name": "",
+        "email": "",
+        "id": "5c",
+        "input": "def remove_spaces(string):\n    for s in string:\n        if s == \" \":\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:49:21": {
+        "key": "+2022-12-22 11:49:21",
+        "name": "",
+        "email": "",
+        "id": "5c",
+        "input": "def remove_spaces(string):\n    for s in string:\n        if s == \" \":\n            string = string.replace(s, \"\")\n    \n",
+        "correct": false,
+        "feedback": "Ran your function on the quick brown fox, but got None instead of thequickbrownfox"
+    },
+    "+2022-12-22 11:49:27": {
+        "key": "+2022-12-22 11:49:27",
+        "name": "",
+        "email": "",
+        "id": "5a",
+        "input": "def capitalize_first(string): \n    # Capitalize the first letter of every word in a string\n    for i in string.split():\n        string = string.replace(i, i.capitalize())\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:49:29": {
+        "key": "+2022-12-22 11:49:29",
+        "name": "",
+        "email": "",
+        "id": "5b",
+        "input": "def remove_vowels(string):\n    vowels = \"aeiou\"\n    for s in string:\n        if s in vowels:\n            string = string.replace(s, \"\")\n    return string\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 11:49:31": {
+        "key": "+2022-12-22 11:49:31",
+        "name": "",
+        "email": "",
+        "id": "5c",
+        "input": "def remove_spaces(string):\n    for s in string:\n        if s == \" \":\n            string = string.replace(s, \"\")\n    \n",
+        "correct": false,
+        "feedback": "Your function returned None, did you forget to return something?"
+    },
+    "+2022-12-22 12:42:59": {
+        "key": "+2022-12-22 12:42:59",
+        "name": "",
+        "email": "",
+        "id": "7a",
+        "input": "def name_age(names: list, ages: list) -> dict:\n    name_age_dict = {}\n    for name, age in zip(names, ages):\n        # your code here\n        name_age_dict[name] = age\n    return name_age_dict\n",
+        "correct": true,
+        "feedback": "All Good!"
+    },
+    "+2022-12-22 12:43:10": {
+        "key": "+2022-12-22 12:43:10",
+        "name": "",
+        "email": "",
+        "id": "7a",
+        "input": "def name_age(names: list, ages: list) -> dict:\n    name_age_dict = {}\n    for name, age in zip(names, ages):\n        # your code here\n        name_age_dict[name] = age\n    # return name_age_dict\n",
+        "correct": false,
+        "feedback": "Your function returned None, did you forget to return something?"
+    },
+    "+2022-12-22 12:43:28": {
+        "key": "+2022-12-22 12:43:28",
+        "name": "",
+        "email": "",
+        "id": "7a",
+        "input": "def name_age(names: list, ages: list) -> dict:\n    name_age_dict = {}\n    for name, age in zip(names, ages):\n        # your code here\n        name_age_dict[name] = age + 1\n    \n    return name_age_dict\n",
+        "correct": false,
+        "feedback": "Ran your function on ['Frank', 'Violet', 'Wendy', 'Qing', 'Gary'], [71, 21, 43, 16, 67], but got {'Frank': 72, 'Violet': 22, 'Wendy': 44, 'Qing': 17, 'Gary': 68} instead of {'Frank': 71, 'Violet': 21, 'Wendy': 43, 'Qing': 16, 'Gary': 67}"
+    },
+    "+2022-12-22 12:43:48": {
+        "key": "+2022-12-22 12:43:48",
+        "name": "",
+        "email": "",
+        "id": "7a",
+        "input": "def name_age(names: list, ages: list) -> dict:\n    name_age_dict = {}\n    for name, age in zip(names, ages):\n        # your code here\n        name_age_dict[name] = age\n    \n    return name_age_dict\n",
+        "correct": true,
+        "feedback": "All Good!"
     }
 }

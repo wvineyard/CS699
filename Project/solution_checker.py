@@ -137,10 +137,128 @@ def check_solution(code, globals_param, locals_param, id):
         else:
             return f"There was some numbers that didn't match up! Your function produced {str(diff)} values that didn't match up."
     elif id == "4b": 
+        # TODO: Complete
         exec(code, globals_param, locals_param)
         func = locals_param['check_letter']
         status = True
     elif id == "4c":
         # TODO: Complete this. Will need to redirect stdout for this.
         pass
+    elif id == "5a":
+        exec(code, globals_param, locals_param)
+        func = locals_param['capitalize_first']
+        status = True
+        strings = ["the quick brown fox", "jumps over the lazy dog", "hello world", "goodbye moon"]
+        capitalized_strings = ["The Quick Brown Fox", "Jumps Over The Lazy Dog", "Hello World", "Goodbye Moon"]
+        for i, s in enumerate(strings): 
+            status = func(s) == capitalized_strings[i]
+            if not status: 
+                if func(s) is None: 
+                    return "Your function returned None, did you forget to return something?"
+                return f"Ran your function on {s}, but got {func(s)} instead of {capitalized_strings[i]}"
+        return "All Good!"
+    elif id == "5b":
+        exec(code, globals_param, locals_param)
+        func = locals_param['remove_vowels']
+        status = True
+        strings = ["the quick brown fox", "jumps over the lazy dog", "hello world", "goodbye moon"]
+        solutions = ["th qck brwn fx", "jmps vr th lzy dg", "hll wrld", "gdby mn"]
+        for i, s in enumerate(strings): 
+            status = func(s) == solutions[i]
+            if not status: 
+                if func(s) is None: 
+                    return "Your function returned None, did you forget to return something?"
+                return f"Ran your function on {s}, but got {func(s)} instead of {solutions[i]}"
+        return "All Good!"
+    elif id == "5c":
+        exec(code, globals_param, locals_param)
+        func = locals_param['remove_spaces']
+        status = True
+        strings = ["the quick brown fox", "jumps over the lazy dog", "hello world", "goodbye moon"]
+        solutions = ["thequickbrownfox", "jumpsoverthelazydog", "helloworld", "goodbyemoon"]
+        for i, s in enumerate(strings): 
+            status = func(s) == solutions[i]
+            if not status:
+                if func(s) is None: 
+                    return "Your function returned None, did you forget to return something?"
+                return f"Ran your function on {s}, but got {func(s)} instead of {solutions[i]}"
+        return "All Good!"
+    elif id == "6a":
+        exec(code, globals_param, locals_param)
+        func = locals_param['sum_elements']
+        status = True
+        for _ in range(100): 
+            length = random.randrange(10)
+            random_list = [random.randint(1, 101) for _ in range(length)]
+            ret = func(random_list)
+            if ret is None: 
+                return "Your function returned None, did you forget to return something?"
+            status = ret == sum(random_list)
+            if not status: 
+                return f"Ran your function on {random_list}, but got {ret} instead of {sum(random_list)}"
+        return "All Good!"
+    elif id == "6b":
+        exec(code, globals_param, locals_param)
+        func = locals_param['max_in_list']
+        status = True
+        for _ in range(100): 
+            length = random.randrange(10)
+            random_list = [random.randint(1, 101) for _ in range(length)]
+            ret = func(random_list)
+            if ret is None: 
+                return "Your function returned None, did you forget to return something?"
+            status = ret == max(random_list)
+            if not status: 
+                return f"Ran your function on {random_list}, but got {ret} instead of {sum(random_list)}"
+    elif id == "6c":
+        exec(code, globals_param, locals_param)
+        func = locals_param['make_list']
+        status = True
+        for _ in range(100): 
+            a = random.randrange(1, 101)
+            b = random.randrange(1, 101)
+            c = random.randrange(1, 101)
+            ret = func(a, b, c)
+            if ret is None: 
+                return "Your function returned None, did you forget to return something?"
+            status = ret == [a, b, c, a+b+c]
+            if not status:
+                if len(ret) == 3: 
+                    return f"Did you make sure to append the sum at the end of the list?"
+                return f"Ran your function on {a}, {b}, {c}, but got {ret} instead of {[a, b, c, a+b+c]}"
+    elif id == "6d":
+        exec(code, globals_param, locals_param)
+        func = locals_param['max_in_list']
+        status = True
+        for _ in range(100): 
+            length = random.randrange(10)
+            random_list = [random.randint(1, 101) for _ in range(length)]
+            ret = func(random_list)
+            if ret is None: 
+                return "Your function returned None, did you forget to return something?"
+            status = ret == [sum(random_list), sum(random_list) / len(random_list)]
+            if not status: 
+                if len(ret) != 2: 
+                    f"The length doesn't seem to be correct, is the list both the sum and the average, and nothing else?"
+                return f"Ran your function on {random_list}, but got {ret} instead of {[sum(random_list), sum(random_list) / len(random_list)]}"
+    elif id == "7a":
+        exec(code, globals_param, locals_param)
+        func = locals_param['name_age']
+        status = True
+        names = ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', 'Frank', 'Gary', 'Holly', 'Igor', 'Joan',
+         'Kim', 'Laura', 'Mike', 'Nick', 'Olivia', 'Pat', 'Qing', 'Rachel', 'Sam', 'Tina',
+         'Ursula', 'Violet', 'Wendy', 'Xander', 'Yvette', 'Zach']
+
+        for _ in range(100):
+            name = random.sample(names, k=5)
+            age = [random.randint(15, 80) for _ in range(5)]
+            ret = func(name, age)
+            if ret is None: 
+                return "Your function returned None, did you forget to return something?"
+            status = ret == {name[i]: age[i] for i in range(5)}
+            if not status: 
+                return f"Ran your function on {name}, {age}, but got {ret} instead of {dict(zip(name, age))}"
+        return "All Good!"
+    
+    
     

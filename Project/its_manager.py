@@ -5,6 +5,7 @@ import sys
 from os.path import exists
 from math import sqrt
 import random
+from builtins import zip 
 from solution_checker import check_solution
 URL = "http://127.0.0.1:5000/upload"
 
@@ -17,8 +18,8 @@ def parse(id: str, code: str, debug=False) -> str:
         code (str): string representation of the code
         debug (bool, optional): if debug is true, print out extra stuff. Defaults to False.
     """
-    globals_param = {"__builtins__": None}
-    locals_param = {"print": print, "sqrt": sqrt, "range": range}
+    globals_param = {"zip": zip}
+    locals_param = {"print": print, "sqrt": sqrt, "range": range, "zip": zip}
     # pylint disable=exec-used
     
     imports = code.split("\n")
