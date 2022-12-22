@@ -69,27 +69,26 @@ def upload():
 def db_entry(entry):
     try:
         key = entry["key"]
-        
         name = entry["name"]
         email = entry["email"]
         id = entry["id"]
         input = entry["input"]
         correct = entry["correct"]
         feedback = entry["feedback"]
-        print(key, name, email, id, input, correct, feedback, file=sys.stderr)
+        # print(key, name, email, id, input, correct, feedback, file=sys.stderr)
     
         print("Attempting to add entry to database", file=sys.stderr)
         connection = sqlite3.connect("solutions.db")
-        print("Failed Here 1", file=sys.stderr)
+        # print("Failed Here 1", file=sys.stderr)
         cursor = connection.cursor()
         sql = f"""
             INSERT INTO data(date_name_id, name, email, problem_id, submitted_code, correct, feedback) 
             VALUES('{key}', '{name}','{email}', '{id}', '{input}', {correct}, '{feedback}');
         """
-        print("Failed Here 2", file=sys.stderr)
-        print(sql, file=sys.stderr)
+        # print("Failed Here 2", file=sys.stderr)
+        # print(sql, file=sys.stderr)
         count = cursor.execute(sql)
-        print("Failed Here 3", file=sys.stderr)
+        # print("Failed Here 3", file=sys.stderr)
         connection.commit()
         print("Entry added", file=sys.stderr)
         cursor.close()

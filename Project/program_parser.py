@@ -1,13 +1,12 @@
 import json
 import time
-import socket
+import requests
 import sys
 from os.path import exists
 from math import sqrt
 import random
 
-HOST = "localhost"
-PORT = 5000
+URL = "http://127.0.0.1:5000/upload"
 
 def parse(id: str, code: str, debug=False) -> str:
     """ Parses the code from the jupyter notebook and (for the type being)
@@ -140,8 +139,10 @@ def add_to_json(id, input, name, email) -> None:
         json_out = json.dumps(data, indent=4)
         with open("data.json", "w") as outfile:
             outfile.write(json_out)
+        requests.post(URL, json=data)    
     else:
         with open("data.json", "r+") as outfile:
+            data = {}
             o = {
                 "key": key,
                 "name": name,
@@ -153,23 +154,13 @@ def add_to_json(id, input, name, email) -> None:
             }
             file_data = json.load(outfile)
             file_data[key] = o
+            data[key] = o
             outfile.seek(0)
             json.dump(file_data, outfile, indent=4)
+            json_out = json.dumps(file_data, indent=4)
+            requests.post(URL, json=data)
 
-async def upload_solution(code: dict, debug = False) -> bool: 
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try: 
-        sock.connect((HOST, PORT))
-        sock.sendall(bytes(json.dumps(code), "utf-8"))
-        
-        received = sock.recv(1024)
-        received = received.decode("utf-8")
-    finally: 
-        sock.close()
-    if debug:
-        print("Sent:    {}".format(code))
-        print("Received: {}".format(received))
-        
+
 
 def main():
     id = "1a"

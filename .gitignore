@@ -1,2 +1,4 @@
 cs699_venv/
 .vscode/
+*__pycache__/
+*.pyc
