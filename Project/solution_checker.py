@@ -16,7 +16,7 @@ def check_solution(code, globals_param, locals_param, id):
                 if str(type(locals_param[var[0]])) in types:
                     types[str(type(locals_param[var[0]]))] += 1
                 else:
-                    if out == "" and not str(type(locals_param[var[0]])) == "<class 'builtin_function_or_method'>":
+                    if out == "" and not str(type(locals_param[var[0]])) in ("<class 'builtin_function_or_method'>", "<class 'function'>", "<class 'module'>", "<class 'range'>", "<class 'zip'>", "<class 'type'>"):
                         out += "You seem to have a variable type that isn't a float, int, or string.\n"
                         break
             except KeyError:
