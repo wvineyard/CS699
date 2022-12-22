@@ -1,6 +1,6 @@
 from __future__ import print_function
 from IPython.core.magic import Magics, magics_class, cell_magic, needs_local_scope
-from program_parser import parse, add_to_json
+from its_manager import parse, add_to_json
 
 
 @magics_class

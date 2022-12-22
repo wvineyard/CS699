@@ -88,5 +88,50 @@
         "input": "a = 1\nb = 2.0\nc = \"three\"\n",
         "correct": true,
         "feedback": "All Good!"
+    },
+    "BillVineyard+2022-12-21 19:45:40": {
+        "key": "BillVineyard+2022-12-21 19:45:40",
+        "name": "Bill Vineyard",
+        "email": "wvineyard@wisc.edu",
+        "id": "1a",
+        "input": "a = 1\nb = 2.0\nc = \"three\"\n",
+        "correct": false,
+        "feedback": null
+    },
+    "BillVineyard+2022-12-21 19:46:43": {
+        "key": "BillVineyard+2022-12-21 19:46:43",
+        "name": "Bill Vineyard",
+        "email": "wvineyard@wisc.edu",
+        "id": "1a",
+        "input": "a = 1\nb = 2.0\nc = \"three\"\n",
+        "correct": false,
+        "feedback": null
+    },
+    "BillVineyard+2022-12-21 19:46:45": {
+        "key": "BillVineyard+2022-12-21 19:46:45",
+        "name": "Bill Vineyard",
+        "email": "wvineyard@wisc.edu",
+        "id": "1b",
+        "input": "x, y, z = 4, 5, 6\n# Assign the sum of x, y, and z to a1\na1 = x + y + z\n# Assign the product of x and y to a2\na2 = x * y\n# Assign the difference between y and z to a3\na3 = y - x\n# Find the quotient of z and x, and assign the result to y, then print y\ny = z / x\n",
+        "correct": false,
+        "feedback": null
+    },
+    "BillVineyard+2022-12-21 19:46:47": {
+        "key": "BillVineyard+2022-12-21 19:46:47",
+        "name": "Bill Vineyard",
+        "email": "wvineyard@wisc.edu",
+        "id": "1c",
+        "input": "a = None\nb = None\nif (a > b):\n    print(\"a is greater than b!\")\n",
+        "correct": false,
+        "feedback": null
+    },
+    "+2022-12-21 20:18:07": {
+        "key": "+2022-12-21 20:18:07",
+        "name": "",
+        "email": "",
+        "id": "1a",
+        "input": "a = 1\nb = 2.0\nc = \"three\"\n",
+        "correct": true,
+        "feedback": "All Good!"
     }
 }
