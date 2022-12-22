@@ -18,7 +18,7 @@ def parse(id: str, code: str, debug=False) -> str:
         debug (bool, optional): if debug is true, print out extra stuff. Defaults to False.
     """
     globals_param = {"__builtins__": None}
-    locals_param = {"print": print, "sqrt": sqrt}
+    locals_param = {"print": print, "sqrt": sqrt, "range": range}
     # pylint disable=exec-used
     
     imports = code.split("\n")
